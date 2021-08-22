@@ -16,54 +16,54 @@
 			android:layout_height="wrap_content"
 			android:text="@string/example_title"
 			android:textSize="@dimen/font_medium_extra"
-			app:layout_constraintBottom_toTopOf="@id/usernameInput"
+			app:layout_constraintBottom_toTopOf="@id/etEmail"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintVertical_bias="0" />
 
 		<EditText
-			android:id="@+id/usernameInput"
+			android:id="@+id/etEmail"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="@dimen/spacing_large_extra"
 			android:layout_marginRight="@dimen/spacing_large_extra"
 			android:gravity="center"
-			android:hint="@string/fragment_example_username"
-			android:inputType="text"
+			android:hint="@string/fragment_example_email"
+			android:inputType="textEmailAddress"
 			android:maxLines="1"
-			app:layout_constraintBottom_toTopOf="@id/favouriteColorInput"
+			app:layout_constraintBottom_toTopOf="@id/etPassword"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintVertical_chainStyle="packed" />
 
 		<EditText
-			android:id="@+id/favouriteColorInput"
+			android:id="@+id/etPassword"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="@dimen/spacing_large_extra"
 			android:layout_marginTop="@dimen/spacing_large"
 			android:layout_marginRight="@dimen/spacing_large_extra"
 			android:gravity="center"
-			android:hint="@string/fragment_example_favourite_color"
-			android:inputType="text"
+			android:hint="@string/fragment_example_password"
+			android:inputType="textPassword"
 			android:maxLines="1"
 			app:layout_constraintBottom_toTopOf="@id/loginButton"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/usernameInput" />
+			app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
 		<Button
 			android:id="@+id/loginButton"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_large"
-			android:text="@string/fragment_example_login"
+			android:text="@string/fragment_example_sign_in"
 			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="@id/favouriteColorInput"
-			app:layout_constraintStart_toStartOf="@id/favouriteColorInput"
-			app:layout_constraintTop_toBottomOf="@id/favouriteColorInput" />
+			app:layout_constraintEnd_toEndOf="@id/etPassword"
+			app:layout_constraintStart_toStartOf="@id/etPassword"
+			app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
 		<TextView
 			android:id="@+id/woloxLink"

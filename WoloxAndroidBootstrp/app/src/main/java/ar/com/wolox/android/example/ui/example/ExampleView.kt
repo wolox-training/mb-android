@@ -6,6 +6,8 @@ interface ExampleView {
 
     fun openBrowser(url: String)
 
+    fun showError(msg: String)
+
     fun toggleLoginButtonEnable(isEnable: Boolean)
 
     fun openPhone(woloxPhone: String): Any
