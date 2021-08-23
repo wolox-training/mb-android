@@ -17,5 +17,6 @@
     <string name="fragment_request_post_id">Post id</string>
     <string name="fragment_request_invalid_input">Invalid input, please enter a valid id.</string>
     <string name="fragment_example_username">tvEmail</string>
+    <string name="fragmente_example_singup">Sing up</string>
 
 </resources>

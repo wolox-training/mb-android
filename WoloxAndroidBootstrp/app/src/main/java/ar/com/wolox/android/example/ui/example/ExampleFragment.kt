@@ -1,5 +1,6 @@
 package ar.com.wolox.android.example.ui.example
 
+import android.view.View
 import androidx.core.widget.addTextChangedListener
 import ar.com.wolox.android.R
 import ar.com.wolox.android.databinding.FragmentExampleBinding
@@ -18,6 +19,8 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
     override fun layout() = R.layout.fragment_example
 
     override fun init() {
+        // Aca va logica de validacion de permisos de usuario
+        presenter.autoLogin()
     }
 
     override fun setListeners() {
@@ -55,6 +58,13 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
     }
 
     override fun goToViewPager(favouriteColor: String) = ViewPagerActivity.start(requireContext(), favouriteColor)
+
+    override fun showLoader(isVisible: Boolean) {
+        if (isVisible)
+            binding.pbLoading.visibility = View.VISIBLE
+        else
+            binding.pbLoading.visibility = View.INVISIBLE
+    }
 
     override fun showError(msg: String) {
 
