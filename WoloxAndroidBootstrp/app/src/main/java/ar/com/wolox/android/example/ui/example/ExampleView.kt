@@ -4,9 +4,13 @@ interface ExampleView {
 
     fun goToViewPager(favouriteColor: String)
 
+    fun showLoader(isVisible: Boolean)
+
+    fun isOnline(): Boolean
+
     fun openBrowser(url: String)
 
-    fun toggleLoginButtonEnable(isEnable: Boolean)
+    fun showError(requestCode: RequestCode)
 
-    fun openPhone(woloxPhone: String): Any
+    fun toggleLoginButtonEnable(isEnable: Boolean)
 }
