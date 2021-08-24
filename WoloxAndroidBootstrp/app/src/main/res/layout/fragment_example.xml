@@ -29,7 +29,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:src="@drawable/wolox_logo_large"
-				android:layout_marginTop="160dp"
+				android:layout_marginTop="@dimen/static_spacing_extra_largest"
 				android:layout_gravity="bottom|center"/>
 		</FrameLayout>
 
@@ -100,6 +100,7 @@
 			app:layout_constraintStart_toStartOf="@id/singPpButton"
 			app:layout_constraintTop_toBottomOf="@id/singPpButton" />
 
+
 		<TextView
 			android:id="@+id/woloxLink"
 			android:layout_width="wrap_content"
@@ -107,24 +108,14 @@
 			android:gravity="bottom|center_horizontal"
 			android:text="@string/example_wolox"
 			android:textSize="@dimen/font_medium_extra"
-			app:layout_constraintBottom_toTopOf="@id/woloxPhone"
+			android:textColorLink="@color/colorPrimary"
+			android:layout_marginBottom="@dimen/static_spacing_medium_extra"
+			app:layout_constraintTop_toBottomOf="@+id/pbLoading"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/loginButton"
+			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintVertical_bias="1"
 			app:layout_constraintVertical_chainStyle="packed" />
-
-		<TextView
-			android:id="@+id/woloxPhone"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:gravity="bottom|center_horizontal"
-			android:text="@string/example_wolox_phone"
-			android:textSize="@dimen/font_medium_extra"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/woloxLink" />
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 

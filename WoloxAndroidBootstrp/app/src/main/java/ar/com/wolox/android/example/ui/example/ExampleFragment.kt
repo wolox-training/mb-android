@@ -1,6 +1,12 @@
 package ar.com.wolox.android.example.ui.example
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
 import ar.com.wolox.android.R
 import ar.com.wolox.android.databinding.FragmentExampleBinding
@@ -8,7 +14,6 @@ import ar.com.wolox.android.example.ui.viewpager.ViewPagerActivity
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import ar.com.wolox.wolmo.core.util.ToastFactory
 import ar.com.wolox.wolmo.core.util.openBrowser
-import ar.com.wolox.wolmo.core.util.openDial
 import javax.inject.Inject
 
 class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBinding, ExamplePresenter>(), ExampleView {
@@ -16,10 +21,12 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
     @Inject
     internal lateinit var toastFactory: ToastFactory
 
+    @Inject
+    internal lateinit var context: Context
+
     override fun layout() = R.layout.fragment_example
 
     override fun init() {
-        // Aca va logica de validacion de permisos de usuario
         presenter.autoLogin()
     }
 
@@ -27,26 +34,30 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
         with(binding) {
             etEmail.addTextChangedListener { presenter.onUsernameInputChanged(it.toString()) }
             woloxLink.setOnClickListener { presenter.onWoloxLinkClicked() }
-            woloxPhone.setOnClickListener { presenter.onWoloxPhoneClicked() }
             loginButton.setOnClickListener {
-                val email: String = binding.etEmail.text.toString()
-                val password: String = binding.etPassword.text.toString()
-                val emailPattern = """[a-zA-Z0-9._-]+@[a-z]+\.+[a-z]+"""
+                val email: String = etEmail.text.toString()
+                val password: String = etPassword.text.toString()
+
+                if (email.isEmpty() && password.isEmpty()) {
+                    etEmail.error = getString(R.string.fragment_example_email_password_empty_field)
+                    etEmail.requestFocus()
+                    return@setOnClickListener
+                }
 
                 if (email.isEmpty()) {
-                    binding.etEmail.error = "Email requerido"
-                    binding.etEmail.requestFocus()
+                    etEmail.error = getString(R.string.fragment_example_email_empty_field)
+                    etEmail.requestFocus()
                     return@setOnClickListener
                 }
 
                 if (password.isEmpty()) {
-                    binding.etPassword.error = "Password requerido"
-                    binding.etPassword.requestFocus()
+                    etPassword.error = getString(R.string.fragment_example_password_empty_field)
+                    etPassword.requestFocus()
                     return@setOnClickListener
                 }
 
                 if (!email.matches(emailPattern.toRegex())) {
-                    binding.etEmail.error = "Email inválido"
+                    etEmail.error = getString(R.string.fragment_example_password_invalid)
                 }
                 presenter.onLoginButtonClicked(email, password)
             }
@@ -66,20 +77,49 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
             binding.pbLoading.visibility = View.INVISIBLE
     }
 
-    override fun showError(msg: String) {
+    @SuppressLint("NewApi")
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun isOnline(): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-        println("error deberia salir en pantalla")
-        if (msg.isEmpty())
-            toastFactory.show(R.string.unknown_error)
-        else
-            toastFactory.show(msg)
+        connectivityManager.let {
+
+            val capabilities =
+                it.getNetworkCapabilities(connectivityManager.activeNetwork)
+
+            capabilities.let {
+                return when {
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
+                        true
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
+                        true
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
+                        true
+                    }
+                    else -> false
+                }
+            }
+            return false
+        }
     }
 
-    override fun openBrowser(url: String) = requireContext().openBrowser(url)
+    override fun showError(requestCode: RequestCode) {
+        when (requestCode) {
+            RequestCode.FAILED -> toastFactory.show(R.string.request_error_validation)
+            else -> toastFactory.show(R.string.default_error)
+        }
+    }
 
-    override fun openPhone(woloxPhone: String) = requireContext().openDial(woloxPhone)
+    override fun openBrowser(url: String) {
+
+        requireContext().openBrowser(url)
+    }
 
     companion object {
+        const val emailPattern = """[a-zA-Z0-9._-]+@[a-z]+\.+[a-z]+"""
         fun newInstance() = ExampleFragment()
     }
 }

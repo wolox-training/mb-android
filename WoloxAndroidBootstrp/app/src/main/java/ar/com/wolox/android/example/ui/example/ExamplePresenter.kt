@@ -11,51 +11,52 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
 
     fun onLoginButtonClicked(email: String, password: String) {
 
-        println("Cargando...")
-
         val loginUserData = LoginUserData(email, password)
 
-        view?.showLoader(true)
-
-        view?.let { onLoginRequest(loginUserData) }
+        if (view?.isOnline() == true) {
+            view?.showLoader(true)
+            view?.let { onLoginRequest(loginUserData) }
+        } else {
+            view?.showError(RequestCode.NOCONNECTIVITY)
+        }
     }
 
     private fun onLoginRequest(loginUserData: LoginUserData) = launch {
-        println("Realizando request...")
         networkRequest(loginRepository.loginPostRepo(loginUserData)) {
-            onResponseSuccessful { response ->
-
-                println("Response: ${response?.data}")
+            onResponseSuccessful { _ ->
                 userSession.apply {
                     username = loginUserData.email
-                    this.password = loginUserData.password
+                    password = loginUserData.password
                 }
                 view?.goToViewPager(loginUserData.email)
             }
-            onResponseFailed { _, _ -> view?.showError("Invalid login credentials. Please try again.") }
-            onCallFailure { view?.showError("Whoops! Something went wrong") }
+            onResponseFailed { _, _ -> view?.showError(RequestCode.FAILED) }
+            onCallFailure { view?.showError(RequestCode.FATALERROR) }
             view?.showLoader(false)
         }
     }
 
     fun onUsernameInputChanged(text: String) = view?.toggleLoginButtonEnable(text.isNotBlank())
 
-    fun onWoloxLinkClicked() = view?.openBrowser(WOLOX_URL)
+    fun onWoloxLinkClicked() {
 
-    fun onWoloxPhoneClicked() = view?.openPhone(WOLOX_PHONE)
+        view?.openBrowser(WOLOX_URL)
+    }
 
     fun autoLogin() {
-        println("Gettin user data")
 
         if (userSession.username != null && userSession.password != null) {
-            println("username: ${userSession.username}")
-            println("username: ${userSession.password}")
             view?.goToViewPager("")
         }
     }
 
     companion object {
         private const val WOLOX_URL = "www.wolox.com.ar"
-        private const val WOLOX_PHONE = "08001234567"
     }
+}
+
+enum class RequestCode {
+    FAILED,
+    FATALERROR,
+    NOCONNECTIVITY,
 }

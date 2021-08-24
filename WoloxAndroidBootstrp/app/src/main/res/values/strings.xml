@@ -1,11 +1,9 @@
 <resources>
-
     <!-- General -->
     <string name="example_title">ExampleFragment</string>
     <string name="example_random_description">Press the button to generate a random number</string>
     <string name="example_randomize">Randomize</string>
-    <string name="example_wolox">WOLOX</string>
-    <string name="example_wolox_phone">0800 123 4567</string>
+    <string name="example_wolox">By joining you agree to our <a href="www.wolox.com.ar">Terms &amp; Conditions</a></string>
     <string name="example_message">The presenter generated the number %1$d and this view is displaying it</string>
     <string name="view_pager_title">Username: %1$s\nFavourite color: %2$s</string>
     <string name="random_toolbar_title">Random number example</string>
@@ -18,5 +16,11 @@
     <string name="fragment_request_invalid_input">Invalid input, please enter a valid id.</string>
     <string name="fragment_example_username">tvEmail</string>
     <string name="fragmente_example_singup">Sing up</string>
+    <string name="fragment_example_email_password_empty_field">Email and password are required</string>
+    <string name="fragment_example_email_empty_field">Email is required</string>
+    <string name="fragment_example_password_empty_field">Password is required</string>
+    <string name="fragment_example_password_invalid">Email is invalid</string>
+    <string name="request_error_validation">Invalid login credentials. Please try again.</string>
+    <string name="default_error">Whoops something went wrong</string>
 
 </resources>

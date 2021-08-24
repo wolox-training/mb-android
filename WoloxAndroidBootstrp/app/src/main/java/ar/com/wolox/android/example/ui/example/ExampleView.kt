@@ -6,11 +6,11 @@ interface ExampleView {
 
     fun showLoader(isVisible: Boolean)
 
+    fun isOnline(): Boolean
+
     fun openBrowser(url: String)
 
-    fun showError(msg: String)
+    fun showError(requestCode: RequestCode)
 
     fun toggleLoginButtonEnable(isEnable: Boolean)
-
-    fun openPhone(woloxPhone: String): Any
 }
