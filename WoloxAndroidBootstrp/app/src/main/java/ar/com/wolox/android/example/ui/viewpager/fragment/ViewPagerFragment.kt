@@ -1,6 +1,7 @@
 package ar.com.wolox.android.example.ui.viewpager.fragment
 
 import android.os.Bundle
+import android.view.View
 import androidx.core.os.bundleOf
 import androidx.viewpager.widget.ViewPager
 import ar.com.wolox.android.R
@@ -10,6 +11,7 @@ import ar.com.wolox.android.example.ui.viewpager.request.RequestFragment
 import ar.com.wolox.android.example.utils.Extras.ViewPager.FAVOURITE_COLOR_KEY
 import ar.com.wolox.wolmo.core.adapter.viewpager.SimpleFragmentPagerAdapter
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
+import com.google.android.material.snackbar.Snackbar
 import dagger.Lazy
 import javax.inject.Inject
 
@@ -29,10 +31,24 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
     override fun init() {
         binding.viewPager.adapter = SimpleFragmentPagerAdapter(childFragmentManager).apply {
             addFragments(
-                randomFragment.get() to "Page 1",
-                requestFragment to "Page 2")
+                randomFragment.get() to "NEWS",
+                requestFragment to "PROFILE")
         }
+
+        binding.tabLayout.apply {
+            setupWithViewPager(binding.viewPager)
+            getTabAt(0)?.setIcon(R.drawable.ic_list)
+            getTabAt(1)?.setIcon(R.drawable.ic_person)
+        }
+
         presenter.onInit(requireArgument(FAVOURITE_COLOR_KEY))
+
+        val fab: View = view!!.findViewById(R.id.fab)
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, getString(R.string.fragment_viewpager_snackbar_test), Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show()
+        }
     }
 
     override fun setListeners() {
@@ -57,7 +73,6 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
             ViewPagerToolbarTitle.RANDOM -> R.string.random_toolbar_title
             ViewPagerToolbarTitle.REQUEST -> R.string.request_toolbar_title
         }
-        binding.toolbar.setTitle(titleRes)
     }
 
     companion object {

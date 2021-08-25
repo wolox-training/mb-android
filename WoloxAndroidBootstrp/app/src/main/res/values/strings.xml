@@ -22,5 +22,8 @@
     <string name="fragment_example_password_invalid">Email is invalid</string>
     <string name="request_error_validation">Invalid login credentials. Please try again.</string>
     <string name="default_error">Whoops something went wrong</string>
+    <string name="submit">Submit</string>
+    <string name="fragment_viewpager_title">Wolox</string>
+    <string name="fragment_viewpager_snackbar_test">Here\'s a Snackbar</string>
 
 </resources>
