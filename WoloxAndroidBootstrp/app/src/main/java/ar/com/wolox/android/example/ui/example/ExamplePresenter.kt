@@ -22,8 +22,10 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
     }
 
     private fun onLoginRequest(loginUserData: LoginUserData) = launch {
+
         networkRequest(loginRepository.loginPostRepo(loginUserData)) {
             onResponseSuccessful { _ ->
+
                 userSession.apply {
                     username = loginUserData.email
                     password = loginUserData.password

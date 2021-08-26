@@ -41,7 +41,6 @@
 			android:layout_height="wrap_content"
 			android:layout_margin="@dimen/spacing_medium_more"
 			android:gravity="top|center_horizontal"
-			android:text=""
 			android:visibility="gone"
 			android:textSize="@dimen/font_medium_extra"
 			app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +58,8 @@
 				android:layout_width="match_parent"
 				android:layout_height="@dimen/static_spacing_largest_extra"
 				android:layout_gravity="top"
+				app:tabIconTint="@color/your_color_selector"
+				app:tabIndicatorColor="@color/colorAccent"
 				app:tabMode="fixed"/>
 		</LinearLayout>
 

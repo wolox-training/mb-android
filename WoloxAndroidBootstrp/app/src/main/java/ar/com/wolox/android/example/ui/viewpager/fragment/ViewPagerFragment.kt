@@ -31,19 +31,19 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
     override fun init() {
         binding.viewPager.adapter = SimpleFragmentPagerAdapter(childFragmentManager).apply {
             addFragments(
-                randomFragment.get() to "NEWS",
-                requestFragment to "PROFILE")
+                randomFragment.get() to getString(R.string.fragment_viewpager_tab_news),
+                requestFragment to getString(R.string.fragment_viewpager_tab_profile))
         }
 
         binding.tabLayout.apply {
             setupWithViewPager(binding.viewPager)
-            getTabAt(0)?.setIcon(R.drawable.ic_list)
-            getTabAt(1)?.setIcon(R.drawable.ic_person)
+            getTabAt(TAB_NEWS)?.setIcon(R.drawable.ic_list)
+            getTabAt(TAB_PROFILE)?.setIcon(R.drawable.ic_person)
         }
 
         presenter.onInit(requireArgument(FAVOURITE_COLOR_KEY))
 
-        val fab: View = view!!.findViewById(R.id.fab)
+        val fab: View = binding.fab
         fab.setOnClickListener { view ->
             Snackbar.make(view, getString(R.string.fragment_viewpager_snackbar_test), Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
@@ -76,6 +76,8 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
     }
 
     companion object {
+        const val TAB_NEWS = 0
+        const val TAB_PROFILE = 1
 
         fun newInstance(favouriteColor: String) = ViewPagerFragment().apply {
             arguments = bundleOf(FAVOURITE_COLOR_KEY to favouriteColor)

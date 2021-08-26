@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:layout_marginBottom="8dp"
@@ -10,49 +10,53 @@
         android:id="@+id/ivCard"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_margin="20dp"
         android:layout_gravity="center_vertical"
-        android:background="@color/colorPrimaryDark"/>
+        android:layout_margin="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="@string/card_card_img_description" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/tvCardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textStyle="bold"
-            android:text="Card Title" />
+            tools:text="Card Title" />
+
         <TextView
             android:id="@+id/tvCardDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Card description" />
+            tools:text="Card description" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/spacing_large"
         android:gravity="center_vertical"
-        android:layout_marginRight="8dp"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/tvCardCreatedTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|end"
-            android:text="15seg" />
+            android:text="@string/fragment_viewpager_card_createdtime_demo" />
+
         <Button
+            android:id="@+id/Button_CardFav"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical|end"
-            android:background="@drawable/ic_favorite"
-            android:id="@+id/Button_CardFav"/>`
+            android:background="@drawable/ic_favorite" />`
     </LinearLayout>
-
 
 
 </LinearLayout>
