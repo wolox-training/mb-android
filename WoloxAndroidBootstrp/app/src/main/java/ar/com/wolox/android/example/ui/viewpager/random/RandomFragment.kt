@@ -16,7 +16,7 @@ class RandomFragment @Inject constructor() : WolmoFragment<FragmentRandomBinding
 
         with(binding) {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
-            val randomRecyclerView = RandomRecyclerView(recyclerViewItemList)
+            val randomRecyclerView = RandomNewsRecyclerView(recyclerViewItemList)
             recyclerView.adapter = randomRecyclerView
         }
     }

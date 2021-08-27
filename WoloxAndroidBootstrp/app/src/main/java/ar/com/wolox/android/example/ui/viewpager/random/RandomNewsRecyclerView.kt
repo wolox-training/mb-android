@@ -13,7 +13,7 @@ import org.ocpsoft.prettytime.PrettyTime
 import org.ocpsoft.prettytime.units.Minute
 import java.util.Date
 
-class RandomRecyclerView(private val dataSet: Array<String>) : RecyclerView.Adapter<RandomRecyclerView.ViewHolder>() {
+class RandomNewsRecyclerView(private val dataSet: Array<String>) : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
@@ -41,7 +41,7 @@ class RandomRecyclerView(private val dataSet: Array<String>) : RecyclerView.Adap
             val tvCardTitle: TextView = view.findViewById(R.id.tvCardTitle)
             tvCardTitle.text = dataSet
             val imageViewCard: ImageView = view.findViewById(R.id.ivCard)
-            Glide.with(view).load("http://goo.gl/gEgYUd").into(imageViewCard)
+            Glide.with(view).load("http://goo.gl/gEgYUd").placeholder(R.drawable.ic_image_not_supported).into(imageViewCard)
         }
     }
 }

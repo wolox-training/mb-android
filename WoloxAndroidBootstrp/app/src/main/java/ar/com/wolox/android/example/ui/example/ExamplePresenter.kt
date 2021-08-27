@@ -14,6 +14,7 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
         val loginUserData = LoginUserData(email, password)
 
         if (view?.isOnline() == true) {
+            userSession.isOngoingSession = false
             view?.showLoader(true)
             view?.let { onLoginRequest(loginUserData) }
         } else {
@@ -29,6 +30,7 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
                 userSession.apply {
                     username = loginUserData.email
                     password = loginUserData.password
+                    isOngoingSession = true
                 }
                 view?.goToViewPager(loginUserData.email)
             }
