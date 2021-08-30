@@ -129,6 +129,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$androidx_recycler_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
     implementation "com.google.android.material:material:$androidx_material_version"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     // Dagger
     implementation "com.google.dagger:dagger:$dagger_version"

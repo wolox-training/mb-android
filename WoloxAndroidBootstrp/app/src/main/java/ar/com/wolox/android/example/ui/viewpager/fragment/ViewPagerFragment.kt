@@ -1,6 +1,7 @@
 package ar.com.wolox.android.example.ui.viewpager.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.viewpager.widget.ViewPager
@@ -12,7 +13,6 @@ import ar.com.wolox.android.example.utils.Extras.ViewPager.FAVOURITE_COLOR_KEY
 import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.adapter.viewpager.SimpleFragmentPagerAdapter
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
-import ar.com.wolox.wolmo.core.util.Logger
 import com.google.android.material.snackbar.Snackbar
 import dagger.Lazy
 import javax.inject.Inject
@@ -28,9 +28,6 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
 
     @Inject
     internal lateinit var userSession: UserSession
-
-    @Inject
-    internal lateinit var logger: Logger
 
     override fun layout() = R.layout.fragment_viewpager
 
@@ -58,9 +55,9 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
                 .show()
         }
 
-        logger.e("user uid", "${userSession.uid}")
-        logger.e("user Access-Token", "${userSession.accessToken}")
-        logger.e("isOnGoing", "${ userSession.isOngoingSession}")
+        Log.e("user uid", "${userSession.uid}")
+        Log.e("user Access-Token", "${userSession.accessToken}")
+        Log.e("isOnGoing", "${ userSession.isOngoingSession}")
     }
 
     override fun setListeners() {

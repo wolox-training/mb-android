@@ -4,6 +4,7 @@ import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.presenter.CoroutineBasePresenter
 import ar.com.wolox.android.example.network.builder.networkRequest
 import ar.com.wolox.android.example.network.repository.LoginRepository
+import ar.com.wolox.android.example.utils.RequestCode
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -57,10 +58,4 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
     companion object {
         private const val WOLOX_URL = "www.wolox.com.ar"
     }
-}
-
-enum class RequestCode {
-    FAILED,
-    FATALERROR,
-    NOCONNECTIVITY,
 }

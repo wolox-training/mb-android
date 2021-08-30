@@ -7,13 +7,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.R
+import ar.com.wolox.android.example.model.News
 import ar.com.wolox.android.example.utils.CustomTimeFormat
 import com.bumptech.glide.Glide
 import org.ocpsoft.prettytime.PrettyTime
 import org.ocpsoft.prettytime.units.Minute
+import java.util.ArrayList
 import java.util.Date
 
-class RandomNewsRecyclerView(private val dataSet: Array<String>) : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
+class RandomNewsRecyclerView() : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
+
+    private var dataSet = ArrayList<News>()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
@@ -27,9 +31,19 @@ class RandomNewsRecyclerView(private val dataSet: Array<String>) : RecyclerView.
 
     override fun getItemCount() = dataSet.size
 
-    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    fun addData(listOfNews: ArrayList<News>) {
+        dataSet.addAll(listOfNews)
+        notifyDataSetChanged()
+    }
 
-        fun render(dataSet: String) {
+    fun clear() {
+        dataSet.clear()
+        notifyDataSetChanged()
+    }
+
+    inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+
+        fun render(news: News) {
 
             val pretty = PrettyTime()
             val date = Date()
@@ -39,7 +53,11 @@ class RandomNewsRecyclerView(private val dataSet: Array<String>) : RecyclerView.
             tvCreatedTimeLabel.text = pretty.format(date)
 
             val tvCardTitle: TextView = view.findViewById(R.id.tvCardTitle)
-            tvCardTitle.text = dataSet
+            tvCardTitle.text = "${news.id} ${news.commenter}"
+
+            val tvCardDescription: TextView = view.findViewById(R.id.tvCardDescription)
+            tvCardDescription.text = news.comment
+
             val imageViewCard: ImageView = view.findViewById(R.id.ivCard)
             Glide.with(view).load("http://goo.gl/gEgYUd").placeholder(R.drawable.ic_image_not_supported).into(imageViewCard)
         }

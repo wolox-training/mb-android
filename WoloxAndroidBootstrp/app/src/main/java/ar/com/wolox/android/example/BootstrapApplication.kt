@@ -42,15 +42,12 @@ class BootstrapApplication : WolmoApplication() {
         val builder = DaggerNetworkingComponent.builder().baseUrl(
                 BaseConfiguration.EXAMPLE_CONFIGURATION_KEY)
                 .gsonNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-        val interceptors = arrayListOf(headersInterceptor())
 
         if (BuildConfig.DEBUG) {
-            builder.okHttpInterceptors(
-                    buildHttpLoggingInterceptor(Level.BODY), ChuckInterceptor(this))
-            interceptors.add(ChuckInterceptor(this))
+            builder.okHttpInterceptors(buildHttpLoggingInterceptor(Level.BODY),
+                ChuckInterceptor(this), headersInterceptor())
         }
-
-        return builder.okHttpInterceptors(*interceptors.toTypedArray()).build()
+        return builder.build()
     }
 
     private fun headersInterceptor() = Interceptor { chain ->
@@ -67,7 +64,6 @@ class BootstrapApplication : WolmoApplication() {
                 }
             }
             val response = chain.proceed(request)
-            println("HEADERS ${response.headers }")
             if (!response.header(HEADER_ACCESS_TOKEN).isNullOrEmpty()) {
                 userSession.accessToken = response.header(HEADER_ACCESS_TOKEN)
             }
