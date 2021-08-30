@@ -19,10 +19,20 @@ class RandomNewsRecyclerView() : RecyclerView.Adapter<RandomNewsRecyclerView.Vie
 
     private var dataSet = ArrayList<News>()
 
+    private lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener {
+        fun onItemClick(position: Int, news: News)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        mListener = listener
+    }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.text_row_item, viewGroup, false)
-        return ViewHolder(view)
+        return ViewHolder(view, mListener)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
@@ -41,8 +51,13 @@ class RandomNewsRecyclerView() : RecyclerView.Adapter<RandomNewsRecyclerView.Vie
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(val view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
 
+        init {
+            view.setOnClickListener {
+                listener.onItemClick(adapterPosition, dataSet[adapterPosition])
+            }
+        }
         fun render(news: News) {
 
             val pretty = PrettyTime()
@@ -53,7 +68,7 @@ class RandomNewsRecyclerView() : RecyclerView.Adapter<RandomNewsRecyclerView.Vie
             tvCreatedTimeLabel.text = pretty.format(date)
 
             val tvCardTitle: TextView = view.findViewById(R.id.tvCardTitle)
-            tvCardTitle.text = "${news.id} ${news.commenter}"
+            tvCardTitle.text = news.commenter
 
             val tvCardDescription: TextView = view.findViewById(R.id.tvCardDescription)
             tvCardDescription.text = news.comment

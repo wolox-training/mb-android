@@ -69,6 +69,11 @@ class RandomFragment @Inject constructor() : WolmoFragment<FragmentRandomBinding
                 )
             )
         }
+        adapter.setOnItemClickListener(object : RandomNewsRecyclerView.onItemClickListener {
+            override fun onItemClick(position: Int, news: News) {
+                toastFactory.show(news.commenter)
+            }
+        })
     }
 
     override fun getNews(list: ArrayList<News>) {
