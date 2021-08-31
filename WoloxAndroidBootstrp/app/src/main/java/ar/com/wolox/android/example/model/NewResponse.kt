@@ -1,6 +1,8 @@
 package ar.com.wolox.android.example.model
 
-data class NewsResponse(
+import java.io.Serializable
+
+class NewsResponse(
     val page: List<News>,
     val count: Long,
     val totalPages: Long,
@@ -10,9 +12,9 @@ data class NewsResponse(
     val nextPage: Long,
     val nextPageURL: String,
     val previousPageURL: Any? = null
-)
+) : Serializable
 
-data class News(
+class News(
     val id: Long,
     val commenter: String,
     val comment: String,
@@ -21,4 +23,4 @@ data class News(
     val likes: List<Long>,
     val createdAt: String,
     val updatedAt: String
-)
+) : Serializable

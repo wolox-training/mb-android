@@ -75,6 +75,7 @@ class RandomFragment @Inject constructor() : WolmoFragment<FragmentRandomBinding
             override fun onItemClick(position: Int, news: News) {
                 toastFactory.show(news.commenter)
                 val intent = Intent(requireContext(), NewsActivity::class.java)
+                        .putExtra(getString(R.string.k_extra_news), news)
                 startActivity(intent)
             }
         })

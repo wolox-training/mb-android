@@ -32,5 +32,6 @@
     <string name="fragment_random_recyclerview_array_test_pos_2">blue</string>
     <string name="card_card_img_description">CardImg</string>
     <string name="fragment_viewpager_card_createdtime_demo">15seg</string>
+    <string name="k_extra_news">Key_News</string>
 
 </resources>
