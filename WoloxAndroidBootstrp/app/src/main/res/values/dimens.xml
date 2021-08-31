@@ -12,6 +12,8 @@
     <dimen name="static_spacing_huge">48dp</dimen>
     <dimen name="static_spacing_huge_extra">60dp</dimen>
     <dimen name="static_spacing_largest">72dp</dimen>
+    <dimen name="static_spacing_largest_extra">100dp</dimen>
+
 
     <!-- Spacing -->
     <dimen name="spacing_none">0dp</dimen>

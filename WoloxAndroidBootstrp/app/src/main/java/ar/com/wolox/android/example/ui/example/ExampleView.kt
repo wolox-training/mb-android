@@ -1,5 +1,7 @@
 package ar.com.wolox.android.example.ui.example
 
+import ar.com.wolox.android.example.utils.RequestCode
+
 interface ExampleView {
 
     fun goToViewPager(favouriteColor: String)

@@ -2,6 +2,10 @@ package ar.com.wolox.android.example
 
 import ar.com.wolox.android.BuildConfig
 import ar.com.wolox.android.example.di.DaggerAppComponent
+import ar.com.wolox.android.example.utils.Extras.UserLogin.HEADER_ACCESS_TOKEN
+import ar.com.wolox.android.example.utils.Extras.UserLogin.HEADER_CLIENT
+import ar.com.wolox.android.example.utils.Extras.UserLogin.HEADER_UID
+import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.WolmoApplication
 import ar.com.wolox.wolmo.networking.di.DaggerNetworkingComponent
 import ar.com.wolox.wolmo.networking.di.NetworkingComponent
@@ -9,10 +13,14 @@ import com.google.gson.FieldNamingPolicy
 import com.readystatesoftware.chuck.ChuckInterceptor
 import com.squareup.leakcanary.LeakCanary
 import dagger.android.AndroidInjector
+import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
+import javax.inject.Inject
 
 class BootstrapApplication : WolmoApplication() {
+    @Inject
+    lateinit var userSession: UserSession
 
     override fun onInit() {
         // Initialize Application stuff here
@@ -36,11 +44,37 @@ class BootstrapApplication : WolmoApplication() {
                 .gsonNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
 
         if (BuildConfig.DEBUG) {
-            builder.okHttpInterceptors(
-                    buildHttpLoggingInterceptor(Level.BODY), ChuckInterceptor(this))
+            builder.okHttpInterceptors(buildHttpLoggingInterceptor(Level.BODY),
+                ChuckInterceptor(this), headersInterceptor())
         }
-
         return builder.build()
+    }
+
+    private fun headersInterceptor() = Interceptor { chain ->
+        with(BaseConfiguration) {
+            val request = chain.request().let {
+                if (userSession.isOngoingSession == true) {
+                    it.newBuilder()
+                        .addHeader(HEADER_ACCESS_TOKEN, userSession.accessToken!!)
+                        .addHeader(HEADER_CLIENT, userSession.client!!)
+                        .addHeader(HEADER_UID, userSession.uid!!)
+                        .build()
+                } else {
+                    it
+                }
+            }
+            val response = chain.proceed(request)
+            if (!response.header(HEADER_ACCESS_TOKEN).isNullOrEmpty()) {
+                userSession.accessToken = response.header(HEADER_ACCESS_TOKEN)
+            }
+            if (!response.header(HEADER_CLIENT).isNullOrEmpty()) {
+                userSession.client = response.header(HEADER_CLIENT)
+            }
+            if (!response.header(HEADER_UID).isNullOrEmpty()) {
+                userSession.uid = response.header(HEADER_UID)
+            }
+            response
+        }
     }
 
     /**

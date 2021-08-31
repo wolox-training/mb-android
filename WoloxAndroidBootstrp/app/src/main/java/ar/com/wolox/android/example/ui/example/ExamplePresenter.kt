@@ -4,6 +4,7 @@ import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.presenter.CoroutineBasePresenter
 import ar.com.wolox.android.example.network.builder.networkRequest
 import ar.com.wolox.android.example.network.repository.LoginRepository
+import ar.com.wolox.android.example.utils.RequestCode
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,6 +15,7 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
         val loginUserData = LoginUserData(email, password)
 
         if (view?.isOnline() == true) {
+            userSession.isOngoingSession = false
             view?.showLoader(true)
             view?.let { onLoginRequest(loginUserData) }
         } else {
@@ -22,11 +24,14 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
     }
 
     private fun onLoginRequest(loginUserData: LoginUserData) = launch {
+
         networkRequest(loginRepository.loginPostRepo(loginUserData)) {
             onResponseSuccessful { _ ->
+
                 userSession.apply {
                     username = loginUserData.email
                     password = loginUserData.password
+                    isOngoingSession = true
                 }
                 view?.goToViewPager(loginUserData.email)
             }
@@ -53,10 +58,4 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
     companion object {
         private const val WOLOX_URL = "www.wolox.com.ar"
     }
-}
-
-enum class RequestCode {
-    FAILED,
-    FATALERROR,
-    NOCONNECTIVITY,
 }

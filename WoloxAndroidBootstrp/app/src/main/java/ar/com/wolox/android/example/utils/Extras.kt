@@ -13,6 +13,10 @@ object Extras {
     object UserLogin {
         const val USERNAME = "username"
         const val PASSWORD = "password"
+        const val HEADER_ACCESS_TOKEN = "Access-Token"
+        const val HEADER_CLIENT = "Client"
+        const val HEADER_UID = "Uid"
+        const val IS_ON_GOING_SESSION = "IS_ON_GOING_SESSION"
     }
 
     object ViewPager {

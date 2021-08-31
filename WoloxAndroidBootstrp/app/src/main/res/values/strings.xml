@@ -22,5 +22,16 @@
     <string name="fragment_example_password_invalid">Email is invalid</string>
     <string name="request_error_validation">Invalid login credentials. Please try again.</string>
     <string name="default_error">Whoops something went wrong</string>
+    <string name="submit">Submit</string>
+    <string name="fragment_viewpager_title">Wolox</string>
+    <string name="fragment_viewpager_snackbar_test">Here\'s a Snackbar</string>
+    <string name="fragment_viewpager_tab_news">NEWS</string>
+    <string name="fragment_viewpager_tab_profile">PROFILE</string>
+    <string name="fragment_random_recyclerview_array_test_pos_0">green</string>
+    <string name="fragment_random_recyclerview_array_test_pos_1">red</string>
+    <string name="fragment_random_recyclerview_array_test_pos_2">blue</string>
+    <string name="card_card_img_description">CardImg</string>
+    <string name="fragment_viewpager_card_createdtime_demo">15seg</string>
+    <string name="k_extra_news">Key_News</string>
 
 </resources>

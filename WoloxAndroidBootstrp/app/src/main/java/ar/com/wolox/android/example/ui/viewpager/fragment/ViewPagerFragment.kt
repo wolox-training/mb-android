@@ -1,6 +1,8 @@
 package ar.com.wolox.android.example.ui.viewpager.fragment
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.core.os.bundleOf
 import androidx.viewpager.widget.ViewPager
 import ar.com.wolox.android.R
@@ -8,8 +10,10 @@ import ar.com.wolox.android.databinding.FragmentViewpagerBinding
 import ar.com.wolox.android.example.ui.viewpager.random.RandomFragment
 import ar.com.wolox.android.example.ui.viewpager.request.RequestFragment
 import ar.com.wolox.android.example.utils.Extras.ViewPager.FAVOURITE_COLOR_KEY
+import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.adapter.viewpager.SimpleFragmentPagerAdapter
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
+import com.google.android.material.snackbar.Snackbar
 import dagger.Lazy
 import javax.inject.Inject
 
@@ -22,6 +26,9 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
     @Inject
     internal lateinit var requestFragment: RequestFragment
 
+    @Inject
+    internal lateinit var userSession: UserSession
+
     override fun layout() = R.layout.fragment_viewpager
 
     override fun handleArguments(arguments: Bundle?) = arguments?.containsKey(FAVOURITE_COLOR_KEY)
@@ -29,10 +36,28 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
     override fun init() {
         binding.viewPager.adapter = SimpleFragmentPagerAdapter(childFragmentManager).apply {
             addFragments(
-                randomFragment.get() to "Page 1",
-                requestFragment to "Page 2")
+                randomFragment.get() to getString(R.string.fragment_viewpager_tab_news),
+                requestFragment to getString(R.string.fragment_viewpager_tab_profile))
         }
+
+        binding.tabLayout.apply {
+            setupWithViewPager(binding.viewPager)
+            getTabAt(TAB_NEWS)?.setIcon(R.drawable.ic_list)
+            getTabAt(TAB_PROFILE)?.setIcon(R.drawable.ic_person)
+        }
+
         presenter.onInit(requireArgument(FAVOURITE_COLOR_KEY))
+
+        val fab: View = binding.fab
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, getString(R.string.fragment_viewpager_snackbar_test), Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show()
+        }
+
+        Log.e("user uid", "${userSession.uid}")
+        Log.e("user Access-Token", "${userSession.accessToken}")
+        Log.e("isOnGoing", "${ userSession.isOngoingSession}")
     }
 
     override fun setListeners() {
@@ -57,10 +82,11 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
             ViewPagerToolbarTitle.RANDOM -> R.string.random_toolbar_title
             ViewPagerToolbarTitle.REQUEST -> R.string.request_toolbar_title
         }
-        binding.toolbar.setTitle(titleRes)
     }
 
     companion object {
+        const val TAB_NEWS = 0
+        const val TAB_PROFILE = 1
 
         fun newInstance(favouriteColor: String) = ViewPagerFragment().apply {
             arguments = bundleOf(FAVOURITE_COLOR_KEY to favouriteColor)

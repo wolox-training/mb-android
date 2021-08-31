@@ -1,6 +1,11 @@
 package ar.com.wolox.android.example.ui.viewpager.random
 
-interface RandomView {
+import ar.com.wolox.android.example.model.News
+import ar.com.wolox.android.example.utils.RequestCode
+import java.util.ArrayList
 
-    fun setRandom(someNumber: Int)
+interface RandomView {
+    fun getNews(list: ArrayList<News>)
+    fun showLoader(showLoader: Boolean)
+    fun showError(requestCode: RequestCode)
 }

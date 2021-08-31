@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3d43b2ad-5b9d-455c-a713-5db1fa7c6f6f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/NewsItemActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/model/NewResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/network/repository/NewsRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/network/services/NewsService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/random/RandomNewsRecyclerView.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/utils/CustomTimeFormat.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/utils/RequestCode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/color/your_color_selector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_like_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_like_off_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_like_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_like_on_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_location.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_news_list_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_news_list_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_profile_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_profile_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/ic_tick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/login_cover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/wolox_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-hdpi/wolox_logo_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_like_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_like_off_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_like_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_like_on_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_location.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_news_list_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_news_list_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_profile_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_profile_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/ic_tick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/login_cover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/wolox_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xhdpi/wolox_logo_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_like_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_like_off_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_like_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_like_on_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_location.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_news_list_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_news_list_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_profile_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_profile_on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/ic_tick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/login_cover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/wolox_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable-xxhdpi/wolox_logo_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable/ic_add.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable/ic_favorite.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable/ic_favorite_shadow.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable/ic_image_not_supported.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable/ic_person.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/drawable/like_button_selector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/layout/activity_news_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/layout/text_row_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/BaseConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/BaseConfiguration.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/BootstrapApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/BootstrapApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/model/LoginResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/model/LoginResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/network/builder/NetworkBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/network/builder/NetworkBuilder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/example/ExampleActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/example/ExampleActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/example/ExampleFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/example/ExampleFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/example/ExamplePresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/example/ExamplePresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/example/ExampleView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/example/ExampleView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/fragment/ViewPagerFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/fragment/ViewPagerFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/fragment/ViewPagerView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/fragment/ViewPagerView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/random/RandomFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/random/RandomFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/random/RandomPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/random/RandomPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/random/RandomView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/ui/viewpager/random/RandomView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/utils/Extras.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/utils/Extras.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/utils/UserSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/java/ar/com/wolox/android/example/utils/UserSession.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/layout/fragment_example.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/layout/fragment_example.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/layout/fragment_random.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/layout/fragment_random.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/layout/fragment_viewpager.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/layout/fragment_viewpager.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/test/java/ar/com/wolox/android/example/ui/example/ExamplePresenterTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/app/src/test/java/ar/com/wolox/android/example/ui/example/ExamplePresenterTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoloxAndroidBootstrp/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WoloxAndroidBootstrp/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1xUhn16LktPypDup64U6YBWHz3O" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3d43b2ad-5b9d-455c-a713-5db1fa7c6f6f" name="Default Changelist" comment="" />
+      <created>1630415737364</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630415737364</updated>
+    </task>
+    <servers />
+  </component>
+</project>
