@@ -1,5 +1,6 @@
 package ar.com.wolox.android.example.ui.viewpager.random
 
+import android.content.Intent
 import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import ar.com.wolox.android.R
 import ar.com.wolox.android.databinding.FragmentRandomBinding
 import ar.com.wolox.android.example.model.News
+import ar.com.wolox.android.example.ui.news.NewsActivity
 import ar.com.wolox.android.example.utils.RequestCode
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import ar.com.wolox.wolmo.core.util.ToastFactory
@@ -72,6 +74,8 @@ class RandomFragment @Inject constructor() : WolmoFragment<FragmentRandomBinding
         adapter.setOnItemClickListener(object : RandomNewsRecyclerView.onItemClickListener {
             override fun onItemClick(position: Int, news: News) {
                 toastFactory.show(news.commenter)
+                val intent = Intent(requireContext(), NewsActivity::class.java)
+                startActivity(intent)
             }
         })
     }
