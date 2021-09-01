@@ -10,13 +10,15 @@ import ar.com.wolox.android.R
 import ar.com.wolox.android.databinding.FragmentRandomBinding
 import ar.com.wolox.android.example.model.News
 import ar.com.wolox.android.example.ui.news.NewsActivity
+import ar.com.wolox.android.example.utils.Extras
 import ar.com.wolox.android.example.utils.RequestCode
+import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import ar.com.wolox.wolmo.core.util.ToastFactory
 import java.util.ArrayList
 import javax.inject.Inject
 
-class RandomFragment @Inject constructor() : WolmoFragment<FragmentRandomBinding, RandomPresenter>(), RandomView,
+class RandomFragment @Inject constructor(private val userSession: UserSession) : WolmoFragment<FragmentRandomBinding, RandomPresenter>(), RandomView,
     SwipeRefreshLayout.OnRefreshListener {
 
     private var isLoading: Boolean = false
@@ -62,7 +64,7 @@ class RandomFragment @Inject constructor() : WolmoFragment<FragmentRandomBinding
         with(binding) {
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = layoutManager
-            adapter = RandomNewsRecyclerView()
+            adapter = RandomNewsRecyclerView(requireContext(), userSession)
             recyclerView.adapter = adapter
             recyclerView.addItemDecoration(
                 DividerItemDecoration(
@@ -73,9 +75,8 @@ class RandomFragment @Inject constructor() : WolmoFragment<FragmentRandomBinding
         }
         adapter.setOnItemClickListener(object : RandomNewsRecyclerView.onItemClickListener {
             override fun onItemClick(position: Int, news: News) {
-                toastFactory.show(news.commenter)
                 val intent = Intent(requireContext(), NewsActivity::class.java)
-                        .putExtra(getString(R.string.k_extra_news), news)
+                        .putExtra(Extras.News.KEY_NAME, news)
                 startActivity(intent)
             }
         })

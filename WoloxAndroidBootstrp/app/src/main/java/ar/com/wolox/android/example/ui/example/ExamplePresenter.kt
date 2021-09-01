@@ -26,11 +26,13 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
     private fun onLoginRequest(loginUserData: LoginUserData) = launch {
 
         networkRequest(loginRepository.loginPostRepo(loginUserData)) {
-            onResponseSuccessful { _ ->
+            onResponseSuccessful { response ->
 
                 userSession.apply {
                     username = loginUserData.email
                     password = loginUserData.password
+                    val userId = response?.data?.id
+                    id = userId?.toInt()
                     isOngoingSession = true
                 }
                 view?.goToViewPager(loginUserData.email)
@@ -49,7 +51,6 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
     }
 
     fun autoLogin() {
-
         if (userSession.username != null && userSession.password != null) {
             view?.goToViewPager("")
         }

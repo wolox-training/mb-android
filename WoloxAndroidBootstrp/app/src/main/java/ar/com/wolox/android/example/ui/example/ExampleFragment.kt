@@ -115,7 +115,6 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
     }
 
     override fun openBrowser(url: String) {
-
         requireContext().openBrowser(url)
     }
 

@@ -64,4 +64,11 @@ class UserSession @Inject constructor(private val sharedPreferencesManager: Shar
             field = uid
             sharedPreferencesManager.store(Extras.UserLogin.HEADER_UID, uid)
         }
+
+    var id: Int? = null
+        get() = field ?: sharedPreferencesManager[Extras.UserLogin.USER_ID, 0]
+        set(id) {
+            field = id
+            id?.let { sharedPreferencesManager.store(Extras.UserLogin.USER_ID, it) }
+        }
 }

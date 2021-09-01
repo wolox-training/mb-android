@@ -1,21 +1,25 @@
 package ar.com.wolox.android.example.ui.viewpager.random
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.News
 import ar.com.wolox.android.example.utils.CustomTimeFormat
+import ar.com.wolox.android.example.utils.UserSession
 import com.bumptech.glide.Glide
 import org.ocpsoft.prettytime.PrettyTime
 import org.ocpsoft.prettytime.units.Minute
 import java.util.ArrayList
 import java.util.Date
 
-class RandomNewsRecyclerView() : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
+class RandomNewsRecyclerView(var context: Context, var userSession: UserSession) : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
 
     private var dataSet = ArrayList<News>()
 
@@ -72,6 +76,16 @@ class RandomNewsRecyclerView() : RecyclerView.Adapter<RandomNewsRecyclerView.Vie
 
             val tvCardDescription: TextView = view.findViewById(R.id.tvCardDescription)
             tvCardDescription.text = news.comment
+
+            val likeButton: Button = view.findViewById(R.id.Button_CardFav)
+
+            if (news.likes.isNotEmpty()) {
+                if (news.likes.contains(userSession.id?.toLong())) {
+                    likeButton.background = ContextCompat.getDrawable(context, R.drawable.ic_like_on)
+                } else {
+                    likeButton.background = ContextCompat.getDrawable(context, R.drawable.ic_like_off)
+                }
+            }
 
             val imageViewCard: ImageView = view.findViewById(R.id.ivCard)
             Glide.with(view).load("http://goo.gl/gEgYUd").placeholder(R.drawable.ic_image_not_supported).into(imageViewCard)

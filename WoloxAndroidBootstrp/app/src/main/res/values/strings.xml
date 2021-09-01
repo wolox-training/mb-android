@@ -33,5 +33,6 @@
     <string name="card_card_img_description">CardImg</string>
     <string name="fragment_viewpager_card_createdtime_demo">15seg</string>
     <string name="k_extra_news">Key_News</string>
+    <string name="iv_cover_fragment_news">iv_cover_fragment_news</string>
 
 </resources>
