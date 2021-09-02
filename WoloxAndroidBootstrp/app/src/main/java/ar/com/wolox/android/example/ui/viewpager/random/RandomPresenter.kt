@@ -15,8 +15,10 @@ class RandomPresenter @Inject constructor(private val newsRepository: NewsReposi
         view?.showLoader(true)
         networkRequest(newsRepository.getNews()) {
             onResponseSuccessful { response ->
-                val news = response?.page as ArrayList<News>
-                view?.getNews(news)
+                val news = response?.page as? ArrayList<News>
+                if (news != null) {
+                    view?.getNews(news)
+                }
                 newsRepository.page = newsRepository.page + 1
             }
             onResponseFailed { _, _ -> view?.showError(RequestCode.FAILED) }

@@ -19,9 +19,11 @@ import org.ocpsoft.prettytime.units.Minute
 import java.util.ArrayList
 import java.util.Date
 
-class RandomNewsRecyclerView(var context: Context, var userSession: UserSession, var dataSet: ArrayList<News>) : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
+class RandomNewsRecyclerView(var context: Context, var userSession: UserSession) : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
 
     private lateinit var mListener: OnItemClickListener
+
+    private var dataSet = ArrayList<News>()
 
     interface OnItemClickListener {
         fun onItemClick(position: Int, news: News)

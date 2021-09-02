@@ -37,12 +37,6 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
         super.setListeners()
     }
 
-    companion object {
-        fun newInstance(news: News) = NewsFragment().apply {
-            arguments = bundleOf(Extras.News.KEY_NAME to news)
-        }
-    }
-
     override fun setUpUi(news: News) {
         with(binding) {
             etNewsTitle.text = news.id.toString()
@@ -51,6 +45,10 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
 
             presenter.setUpLikeButton(news, ButtonNewsCardFav, requireContext())
         }
+    }
+
+    override fun onRefresh() {
+        presenter.refreshNewsItem()
     }
 
     override fun showLoader(show: Boolean) {
@@ -66,7 +64,9 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
         }
     }
 
-    override fun onRefresh() {
-        presenter.refreshNewsItem()
+    companion object {
+        fun newInstance(news: News) = NewsFragment().apply {
+            arguments = bundleOf(Extras.News.KEY_NAME to news)
+        }
     }
 }

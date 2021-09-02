@@ -22,8 +22,7 @@ class NewsPresenter @Inject constructor(private val newsRepository: NewsReposito
 
     fun refreshNewsItem() = launch {
         networkRequest(newsRepository.getSingleNewsItem()) {
-            onResponseSuccessful { _ ->
-            }
+            onResponseSuccessful { _ -> }
             onResponseFailed { _, _ -> view?.showError(RequestCode.FAILED) }
             onCallFailure { view?.showError(RequestCode.FATALERROR) }
         }
@@ -32,8 +31,7 @@ class NewsPresenter @Inject constructor(private val newsRepository: NewsReposito
 
     fun setLikeRequest() = launch {
         networkRequest(newsRepository.setLike()) {
-            onResponseSuccessful { _ ->
-            }
+            onResponseSuccessful { _ -> }
             onResponseFailed { _, _ -> view?.showError(RequestCode.FAILED) }
             onCallFailure { view?.showError(RequestCode.FATALERROR) }
         }
