@@ -15,8 +15,4 @@ class PostRepository @Inject constructor(private val retrofitServices: RetrofitS
     suspend fun getPostById(id: Int) = withContext(Dispatchers.IO) {
         NetworkRequestHandler.safeApiCall { service.getPostById(id) }
     }
-
-    suspend fun loginPostRepo(email: String, password: String) = withContext(Dispatchers.IO) {
-        NetworkRequestHandler.safeApiCall { service.loginUser(email, password) }
-    }
 }

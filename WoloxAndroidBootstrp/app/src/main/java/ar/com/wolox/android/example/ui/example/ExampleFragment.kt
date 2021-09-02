@@ -69,7 +69,7 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
         binding.loginButton.isEnabled = isEnable
     }
 
-    override fun goToViewPager(favouriteColor: String) = ViewPagerActivity.start(requireContext(), favouriteColor)
+    override fun goToViewPager(email: String) = ViewPagerActivity.start(requireContext(), email)
 
     override fun showLoader(isVisible: Boolean) {
         if (isVisible)
