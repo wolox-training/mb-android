@@ -4,21 +4,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-        <TextView
-            android:id="@+id/etNews"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh_news_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_fragment_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_none"
+            android:layout_weight="60"
+            android:background="@color/chuck_colorAccent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/iv_cover_fragment_news">
+        </ImageView>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_news"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/spacing_large_extra"
-            android:layout_marginTop="316dp"
-            android:layout_marginRight="@dimen/spacing_large_extra"
-            android:gravity="center"
-            android:inputType="text"
-            android:maxLines="1"
-            android:text="Hello World"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.636"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintTop_toBottomOf="@id/cl_fragment_news"
+            app:navigationIcon="?attr/homeAsUpIndicator">
+        </androidx.appcompat.widget.Toolbar>
 
+
+        <TextView
+            android:id="@+id/etNewsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/font_medium"
+            android:layout_marginTop="@dimen/font_large"
+            android:textSize="@dimen/font_large_extra"
+            android:textStyle="bold"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/etNewsDescripction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/font_medium"
+            android:layout_marginTop="@dimen/font_large"
+            android:textSize="@dimen/font_large_extra"
+            tools:text="Description" />
+
+        <Button
+            android:id="@+id/Button_News_CardFav"
+            android:layout_width="@dimen/spacing_big_extra"
+            android:layout_height="@dimen/spacing_big_extra"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/static_spacing_largest_extra"
+            android:background="@drawable/like_button_selector" />
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

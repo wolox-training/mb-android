@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_marginBottom="8dp"
+    android:layout_height="@dimen/static_spacing_largest_extra"
+    android:layout_marginBottom="@dimen/static_spacing_medium"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -12,17 +12,17 @@
 
         <ImageView
             android:id="@+id/ivCard"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/static_spacing_huge_extra"
+            android:layout_height="@dimen/static_spacing_huge_extra"
             android:layout_gravity="center_vertical"
-            android:layout_margin="20dp"
+            android:layout_margin="@dimen/static_spacing_large"
             android:contentDescription="@string/card_card_img_description" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="180dp"
+        android:layout_width="@dimen/static_spacing_largest_extra_extra"
         android:layout_height="match_parent"
-        android:layout_marginRight="@dimen/spacing_large_extra"
+        android:layout_marginEnd="@dimen/spacing_large_extra"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -47,7 +47,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="@dimen/spacing_large"
+        android:layout_marginEnd="@dimen/spacing_large"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -56,12 +56,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|end"
-            android:text="@string/fragment_viewpager_card_createdtime_demo" />
+            tools:text="@string/fragment_viewpager_card_createdtime_demo" />
 
         <Button
             android:id="@+id/Button_CardFav"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/static_spacing_large_extra"
+            android:layout_height="@dimen/static_spacing_large_extra"
             android:layout_gravity="center_vertical|end"
             android:background="@drawable/like_button_selector" />
     </LinearLayout>

@@ -4,6 +4,7 @@ import java.io.Serializable
 
 class NewsResponse(
     val page: List<News>,
+    val message: String,
     val count: Long,
     val totalPages: Long,
     val totalCount: Long,

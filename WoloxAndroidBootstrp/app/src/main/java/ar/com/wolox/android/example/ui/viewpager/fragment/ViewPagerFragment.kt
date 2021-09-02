@@ -1,7 +1,6 @@
 package ar.com.wolox.android.example.ui.viewpager.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.viewpager.widget.ViewPager
@@ -54,10 +53,6 @@ class ViewPagerFragment private constructor() : WolmoFragment<FragmentViewpagerB
                 .setAction("Action", null)
                 .show()
         }
-
-        Log.e("user uid", "${userSession.uid}")
-        Log.e("user Access-Token", "${userSession.accessToken}")
-        Log.e("isOnGoing", "${ userSession.isOngoingSession}")
     }
 
     override fun setListeners() {
