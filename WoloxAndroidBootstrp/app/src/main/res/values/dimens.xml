@@ -13,6 +13,7 @@
     <dimen name="static_spacing_huge_extra">60dp</dimen>
     <dimen name="static_spacing_largest">72dp</dimen>
     <dimen name="static_spacing_largest_extra">100dp</dimen>
+    <dimen name="static_spacing_largest_extra_extra">180dp</dimen>
 
 
     <!-- Spacing -->

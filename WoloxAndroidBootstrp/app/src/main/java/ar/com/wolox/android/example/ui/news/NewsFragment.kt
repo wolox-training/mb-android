@@ -23,7 +23,6 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
     override fun handleArguments(arguments: Bundle?) = arguments?.containsKey(Extras.News.KEY_NAME)
 
     override fun init() {
-
         presenter.onInit(requireArgument(Extras.News.KEY_NAME))
         with(binding) {
             swipeRefreshNewsFragment.setOnRefreshListener(this@NewsFragment)
@@ -32,12 +31,9 @@ class NewsFragment @Inject constructor() : WolmoFragment<FragmentNewsBinding, Ne
 
     override fun setListeners() {
         binding.ButtonNewsCardFav.setOnClickListener {
-
             it.background = ContextCompat.getDrawable(requireContext(), R.drawable.ic_like_on)
-
             presenter.setLikeRequest()
         }
-
         super.setListeners()
     }
 

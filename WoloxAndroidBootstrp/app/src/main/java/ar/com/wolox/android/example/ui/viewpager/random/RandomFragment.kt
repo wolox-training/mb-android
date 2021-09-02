@@ -37,7 +37,6 @@ class RandomFragment @Inject constructor(private val userSession: UserSession) :
             layoutManager = LinearLayoutManager(requireContext())
             swipeRefresh.setOnRefreshListener(this@RandomFragment)
 
-            setUpRecycleView()
             presenter.getNewsRequest(false)
 
             recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -60,29 +59,26 @@ class RandomFragment @Inject constructor(private val userSession: UserSession) :
         }
     }
 
-    private fun setUpRecycleView() {
+    override fun getNews(list: ArrayList<News>) {
         with(binding) {
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = layoutManager
-            adapter = RandomNewsRecyclerView(requireContext(), userSession)
+            adapter = RandomNewsRecyclerView(requireContext(), userSession, list)
             recyclerView.adapter = adapter
             recyclerView.addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
-                )
+                    DividerItemDecoration(
+                            requireContext(),
+                            DividerItemDecoration.VERTICAL
+                    )
             )
         }
-        adapter.setOnItemClickListener(object : RandomNewsRecyclerView.onItemClickListener {
+        adapter.setOnItemClickListener(object : RandomNewsRecyclerView.OnItemClickListener {
             override fun onItemClick(position: Int, news: News) {
                 val intent = Intent(requireContext(), NewsActivity::class.java)
                         .putExtra(Extras.News.KEY_NAME, news)
                 startActivity(intent)
             }
         })
-    }
-
-    override fun getNews(list: ArrayList<News>) {
         adapter.addData(list)
         binding.swipeRefresh.isRefreshing = false
     }
