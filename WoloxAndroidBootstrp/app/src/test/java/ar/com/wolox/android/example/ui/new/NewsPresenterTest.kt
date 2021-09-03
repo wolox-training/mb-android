@@ -5,6 +5,7 @@ import ar.com.wolox.android.example.model.NewsResponse
 import ar.com.wolox.android.example.network.repository.NewsRepository
 import ar.com.wolox.android.example.ui.news.NewsPresenter
 import ar.com.wolox.android.example.ui.news.NewsView
+import ar.com.wolox.android.example.utils.Extras
 import ar.com.wolox.android.example.utils.RequestCode
 import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.tests.CoroutineTestRule
@@ -39,12 +40,9 @@ class NewsPresenterTest : WolmoPresenterTest<NewsView, NewsPresenter>() {
     @Test
     fun `on init`() {
 
-        val list: List<Long> = listOf()
-        val news = News(8, "someone", "something", "2018-02-16", "http://mypic.com", list, "sometime", "another time")
+        presenter.onInit(Extras.Testing.NEWS)
 
-        presenter.onInit(news)
-
-        verify(view, times(1)).setUpUi(news)
+        verify(view, times(1)).setUpUi(Extras.Testing.NEWS)
     }
 
     @Test

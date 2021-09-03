@@ -107,5 +107,6 @@ class RandomFragment @Inject constructor(private val userSession: UserSession) :
     override fun onRefresh() {
         adapter.clear()
         presenter.getNewsRequest(true)
+        binding.swipeRefresh.isRefreshing = false
     }
 }

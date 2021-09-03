@@ -1,8 +1,8 @@
 package ar.com.wolox.android.example.ui.example
 
 import ar.com.wolox.android.example.model.LoginResponse
-import ar.com.wolox.android.example.model.LoginUserData
 import ar.com.wolox.android.example.network.repository.LoginRepository
+import ar.com.wolox.android.example.utils.Extras
 import ar.com.wolox.android.example.utils.RequestCode
 import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.tests.CoroutineTestRule
@@ -38,9 +38,7 @@ class ExamplePresenterTest : WolmoPresenterTest<ExampleView, ExamplePresenter>()
     fun `success's login`() = runBlocking {
 
         // GIVEN
-        val email = "melvin.lambert15@example.com"
-        val password = "123456"
-        val userLoginData = LoginUserData(email, password)
+        val userLoginData = Extras.Testing.CORRECT_USERDATA
         val response = mock(Response::class.java) as Response<LoginResponse>
         whenever(loginRepository.loginPostRepo(userLoginData)).doReturn(NetworkResponse.Success(response))
 
@@ -50,16 +48,14 @@ class ExamplePresenterTest : WolmoPresenterTest<ExampleView, ExamplePresenter>()
         // THEN
         verify(userSession, times(1)).username = userLoginData.email
         verify(userSession, times(1)).password = userLoginData.password
-        verify(view, times(1)).goToViewPager(email)
+        verify(view, times(1)).goToViewPager(Extras.Testing.EMAIL)
     }
 
     @Test
-    fun `failed with incorrect credentials login attempt`() = runBlocking {
+    fun `Error with incorrect credentials login attempt`() = runBlocking {
 
         // GIVEN
-        val email = "melvin.lambert@example.com"
-        val password = "123"
-        val userLoginData = LoginUserData(email, password)
+        val userLoginData = Extras.Testing.INCORRECT_USERDATA
         val response = mock(Response::class.java) as Response<LoginResponse>
         whenever(loginRepository.loginPostRepo(userLoginData)).doReturn(NetworkResponse.Error(response))
 
@@ -71,12 +67,10 @@ class ExamplePresenterTest : WolmoPresenterTest<ExampleView, ExamplePresenter>()
     }
 
     @Test
-    fun `failed login attempt`() = runBlocking {
+    fun `Failed login attempt`() = runBlocking {
 
         // GIVEN
-        val email = "melvin.lambert@example.com"
-        val password = "123"
-        val userLoginData = LoginUserData(email, password)
+        val userLoginData = Extras.Testing.CORRECT_USERDATA
         whenever(loginRepository.loginPostRepo(userLoginData)).doReturn(NetworkResponse.Failure(Throwable()))
 
         // WHEN
