@@ -30,9 +30,11 @@
             android:name=".example.ui.viewpager.ViewPagerActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".example.ui.news.NewsActivity"
-            android:parentActivityName=".example.ui.example.ExampleActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".example.ui.news.NewsActivity"
+            android:parentActivityName=".example.ui.viewpager.ViewPagerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
 
     </application>
 

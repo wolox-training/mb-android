@@ -23,7 +23,7 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
         }
     }
 
-    private fun onLoginRequest(loginUserData: LoginUserData) = launch {
+    fun onLoginRequest(loginUserData: LoginUserData) = launch {
 
         networkRequest(loginRepository.loginPostRepo(loginUserData)) {
             onResponseSuccessful { response ->
@@ -31,8 +31,8 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
                 userSession.apply {
                     username = loginUserData.email
                     password = loginUserData.password
-                    val userId = response?.data?.id
-                    id = userId?.toInt()
+                    val userId = response?.data?.id?.toInt()
+                    id = userId
                     isOngoingSession = true
                 }
                 view?.goToViewPager(loginUserData.email)

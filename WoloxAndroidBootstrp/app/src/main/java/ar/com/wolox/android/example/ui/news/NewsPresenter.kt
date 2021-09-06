@@ -22,18 +22,16 @@ class NewsPresenter @Inject constructor(private val newsRepository: NewsReposito
 
     fun refreshNewsItem() = launch {
         networkRequest(newsRepository.getSingleNewsItem()) {
-            onResponseSuccessful { _ ->
-            }
+            onResponseSuccessful { _ -> }
             onResponseFailed { _, _ -> view?.showError(RequestCode.FAILED) }
             onCallFailure { view?.showError(RequestCode.FATALERROR) }
         }
         view?.showLoader(false)
     }
 
-    fun setLikeRequest() = launch {
+    fun onLikeButtonClicked() = launch {
         networkRequest(newsRepository.setLike()) {
-            onResponseSuccessful { _ ->
-            }
+            onResponseSuccessful { _ -> }
             onResponseFailed { _, _ -> view?.showError(RequestCode.FAILED) }
             onCallFailure { view?.showError(RequestCode.FATALERROR) }
         }
@@ -42,11 +40,11 @@ class NewsPresenter @Inject constructor(private val newsRepository: NewsReposito
     fun setUpLikeButton(news: News, likeButton: Button, context: Context) {
 
         if (news.likes.isNotEmpty()) {
-            if (news.likes.contains(userSession.id?.toLong())) {
-                likeButton.background = ContextCompat.getDrawable(context, R.drawable.ic_like_on)
-            } else {
-                likeButton.background = ContextCompat.getDrawable(context, R.drawable.ic_like_off)
-            }
+            likeButton.background =
+            if (news.likes.contains(userSession.id?.toLong()))
+                ContextCompat.getDrawable(context, R.drawable.ic_like_on)
+            else
+                ContextCompat.getDrawable(context, R.drawable.ic_like_off)
         }
     }
 }

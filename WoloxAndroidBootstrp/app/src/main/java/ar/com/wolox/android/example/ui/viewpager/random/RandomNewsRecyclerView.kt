@@ -78,11 +78,11 @@ class RandomNewsRecyclerView(var context: Context, var userSession: UserSession,
             val likeButton: Button = view.findViewById(R.id.Button_CardFav)
 
             if (news.likes.isNotEmpty()) {
-                if (news.likes.contains(userSession.id?.toLong())) {
-                    likeButton.background = ContextCompat.getDrawable(context, R.drawable.ic_like_on)
-                } else {
-                    likeButton.background = ContextCompat.getDrawable(context, R.drawable.ic_like_off)
-                }
+                likeButton.background =
+                        if (news.likes.contains(userSession.id?.toLong()))
+                            ContextCompat.getDrawable(context, R.drawable.ic_like_on)
+                        else
+                            ContextCompat.getDrawable(context, R.drawable.ic_like_off)
             }
 
             val imageViewCard: ImageView = view.findViewById(R.id.ivCard)

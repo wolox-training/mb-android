@@ -69,7 +69,7 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
         binding.loginButton.isEnabled = isEnable
     }
 
-    override fun goToViewPager(favouriteColor: String) = ViewPagerActivity.start(requireContext(), favouriteColor)
+    override fun goToViewPager(email: String) = ViewPagerActivity.start(requireContext(), email)
 
     override fun showLoader(isVisible: Boolean) {
         if (isVisible)
@@ -89,7 +89,7 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
             val capabilities =
                 it.getNetworkCapabilities(connectivityManager.activeNetwork)
 
-            capabilities.let {
+            capabilities?.let {
                 return when {
                     capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
                         true
