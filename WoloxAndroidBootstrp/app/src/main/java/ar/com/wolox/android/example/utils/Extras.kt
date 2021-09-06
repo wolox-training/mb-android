@@ -40,6 +40,6 @@ object Extras {
         val INCORRECT_USERDATA = LoginUserData(INCORRECT_EMAIL, INCORRECT_PASSWORD)
 
         private val NEWS_LIST: List<Long> = listOf()
-        val NEWS = News(8, "someone", "something", "2018-02-16", "http://mypic.com", NEWS_LIST, "sometime", "another time")
+        val NEWS_MOCK = News(8, "someone", "something", "2018-02-16", "http://mypic.com", NEWS_LIST, "sometime", "another time")
     }
 }

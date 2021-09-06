@@ -5,7 +5,7 @@ import ar.com.wolox.android.example.model.NewsResponse
 import ar.com.wolox.android.example.network.repository.NewsRepository
 import ar.com.wolox.android.example.ui.news.NewsPresenter
 import ar.com.wolox.android.example.ui.news.NewsView
-import ar.com.wolox.android.example.utils.Extras
+import ar.com.wolox.android.example.utils.Extras.Testing.NEWS_MOCK
 import ar.com.wolox.android.example.utils.RequestCode
 import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.tests.CoroutineTestRule
@@ -40,9 +40,9 @@ class NewsPresenterTest : WolmoPresenterTest<NewsView, NewsPresenter>() {
     @Test
     fun `on init`() {
 
-        presenter.onInit(Extras.Testing.NEWS)
+        presenter.onInit(NEWS_MOCK)
 
-        verify(view, times(1)).setUpUi(Extras.Testing.NEWS)
+        verify(view, times(1)).setUpUi(NEWS_MOCK)
     }
 
     @Test
@@ -53,7 +53,7 @@ class NewsPresenterTest : WolmoPresenterTest<NewsView, NewsPresenter>() {
         whenever(newsRepository.setLike()).doReturn(NetworkResponse.Success(response))
 
         // WHEN
-        presenter.setLikeRequest().join()
+        presenter.onLikeButtonClicked().join()
     }
 
     @Test
@@ -64,7 +64,7 @@ class NewsPresenterTest : WolmoPresenterTest<NewsView, NewsPresenter>() {
         whenever(newsRepository.setLike()).doReturn(NetworkResponse.Error(response))
 
         // WHEN
-        presenter.setLikeRequest().join()
+        presenter.onLikeButtonClicked().join()
 
         // THEN
         verify(view, times(1)).showError(RequestCode.FAILED)
@@ -77,7 +77,7 @@ class NewsPresenterTest : WolmoPresenterTest<NewsView, NewsPresenter>() {
         whenever(newsRepository.setLike()).doReturn(NetworkResponse.Failure(Throwable()))
 
         // WHEN
-        presenter.setLikeRequest().join()
+        presenter.onLikeButtonClicked().join()
 
         // THEN
         verify(view, times(1)).showError(RequestCode.FATALERROR)

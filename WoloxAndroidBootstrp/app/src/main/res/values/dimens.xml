@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Static Spacing -->
+    <dimen name="static_spacing_none">0dp</dimen>
     <dimen name="static_spacing_tiniest">1dp</dimen>
     <dimen name="static_spacing_tiny">2dp</dimen>
     <dimen name="static_spacing_small">4dp</dimen>

@@ -62,7 +62,7 @@ class RandomFragment @Inject constructor(private val userSession: UserSession) :
 
     private fun setUpRecycleView() {
         with(binding) {
-            adapter = RandomNewsRecyclerView(requireContext(), userSession)
+            adapter = RandomNewsRecyclerView(requireContext(), userSession, ArrayList<News>())
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = layoutManager
             recyclerView.adapter = adapter

@@ -89,7 +89,7 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
             val capabilities =
                 it.getNetworkCapabilities(connectivityManager.activeNetwork)
 
-            capabilities.let {
+            capabilities?.let {
                 return when {
                     capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
                         true

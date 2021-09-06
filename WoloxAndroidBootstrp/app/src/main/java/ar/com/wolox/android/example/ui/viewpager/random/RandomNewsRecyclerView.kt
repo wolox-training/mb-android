@@ -19,11 +19,9 @@ import org.ocpsoft.prettytime.units.Minute
 import java.util.ArrayList
 import java.util.Date
 
-class RandomNewsRecyclerView(var context: Context, var userSession: UserSession) : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
+class RandomNewsRecyclerView(var context: Context, var userSession: UserSession, var dataSet: ArrayList<News>) : RecyclerView.Adapter<RandomNewsRecyclerView.ViewHolder>() {
 
     private lateinit var mListener: OnItemClickListener
-
-    private var dataSet = ArrayList<News>()
 
     interface OnItemClickListener {
         fun onItemClick(position: Int, news: News)
@@ -80,11 +78,11 @@ class RandomNewsRecyclerView(var context: Context, var userSession: UserSession)
             val likeButton: Button = view.findViewById(R.id.Button_CardFav)
 
             if (news.likes.isNotEmpty()) {
-                if (news.likes.contains(userSession.id?.toLong())) {
-                    likeButton.background = ContextCompat.getDrawable(context, R.drawable.ic_like_on)
-                } else {
-                    likeButton.background = ContextCompat.getDrawable(context, R.drawable.ic_like_off)
-                }
+                likeButton.background =
+                        if (news.likes.contains(userSession.id?.toLong()))
+                            ContextCompat.getDrawable(context, R.drawable.ic_like_on)
+                        else
+                            ContextCompat.getDrawable(context, R.drawable.ic_like_off)
             }
 
             val imageViewCard: ImageView = view.findViewById(R.id.ivCard)
