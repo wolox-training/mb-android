@@ -29,6 +29,7 @@ class ExampleFragment private constructor() : WolmoFragment<FragmentExampleBindi
 
     override fun init() {
         presenter.autoLogin()
+        presenter.firebasePushNotifications()
     }
 
     override fun setListeners() {

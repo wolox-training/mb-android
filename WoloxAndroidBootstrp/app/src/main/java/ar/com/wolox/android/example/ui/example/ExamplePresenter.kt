@@ -1,10 +1,13 @@
 package ar.com.wolox.android.example.ui.example
+import android.util.Log
 import ar.com.wolox.android.example.model.LoginUserData
 import ar.com.wolox.android.example.utils.UserSession
 import ar.com.wolox.wolmo.core.presenter.CoroutineBasePresenter
 import ar.com.wolox.android.example.network.builder.networkRequest
 import ar.com.wolox.android.example.network.repository.LoginRepository
 import ar.com.wolox.android.example.utils.RequestCode
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -54,6 +57,21 @@ class ExamplePresenter @Inject constructor(private val userSession: UserSession,
         if (userSession.username != null && userSession.password != null) {
             view?.goToViewPager("")
         }
+    }
+
+    fun firebasePushNotifications() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.d("TAG", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            // Log token
+            Log.d("TAG", token)
+        })
     }
 
     companion object {
