@@ -3,10 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'idea'
 apply plugin: 'com.hiya.jacoco-android'
+apply plugin: 'com.google.gms.google-services'
 apply from: 'keystore.gradle'
 apply from: '../quality.gradle'
 apply from: '../scripts/warp/warp_task.gradle'
 apply from: '../scripts/sanity/sanity_task.gradle'
+
 
 idea {
     module {
@@ -145,6 +147,14 @@ dependencies {
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.4.Final'
+        // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:28.3.1')
+        // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
+        // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation 'androidx.preference:preference:1.1.0-alpha04'
 
 
     // Testing dependencies

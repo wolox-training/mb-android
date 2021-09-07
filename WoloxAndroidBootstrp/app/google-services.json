@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "41536590288",
+    "project_id": "training-3c620",
+    "storage_bucket": "training-3c620.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41536590288:android:d95fce181b5d5e3b65e9d5",
+        "android_client_info": {
+          "package_name": "ar.com.wolox.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41536590288-rmh1mui1iiokuld1dqpv8gu0h5jquop1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5rCD3sQvUMjR58OeU0l4qlfmSqdEfMH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41536590288-rmh1mui1iiokuld1dqpv8gu0h5jquop1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

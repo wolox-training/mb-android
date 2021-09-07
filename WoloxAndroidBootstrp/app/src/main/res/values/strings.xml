@@ -37,5 +37,9 @@
     <string name="news_image_demo">news image demo</string>
     <string name="news_faketoolbar_title">Post</string>
     <string name="fragment_news_back_arrow">fragment_news-back_arrow</string>
+    <string name="notification_channel_id_default">general</string>
+    <string name="notification_channel_name_default">Generales</string>
+    <string name="channel_description">general</string>
+
 
 </resources>
